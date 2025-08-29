@@ -4,6 +4,7 @@ import AddEmployee from './components/AddEmployee';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import GetEmployee from './components/GetEmployee';
 import AddHolidayDetail from './components/AddHolidayDetail';
+import GetHolidayList from './components/GetHolidayList';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           {/* <Route path='/getallbooks' element={<GetAllBooks />}/> */}
           <Route path='/addemployee' element={<AddEmployee />}/>
           <Route path='/getemployeebyid/:empid' element={<GetEmployee />}/>
+          <Route path='/getholidaylist' element={<GetHolidayList />}/>
+
           {/* <Route path='/edit/:id' element={<EditBook />}/> */}
         </Routes>
       </BrowserRouter>

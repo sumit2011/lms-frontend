@@ -28,7 +28,7 @@ function AddHolidayDetail() {
         <form className='mx-auto' style={{maxWidth: "500px"}}>
            <div className='mb-3'>
                 <label className='form-label'>Enter Holiday ID</label>
-                <input type="integer" name="id" value={holiday.id || ""}
+                <input type="text" name="id" value={holiday.id || ""}
                     onChange={changeData} className='form-control' required/>
             </div>
             <div className='mb-3'>
