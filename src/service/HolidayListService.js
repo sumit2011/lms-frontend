@@ -11,7 +11,10 @@ function HolidayListService() {
         return axios.post(HOLIDAYLIST_URI+`/addholidaydetails`,holiday);
     };
 
-  return Object.freeze({getHolidays, addHoliday});
+  return Object.freeze({
+    getHolidays, 
+    addHoliday
+});
 }
 
 export default HolidayListService

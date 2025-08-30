@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import React from 'react'
+
 
 const EMPLOYEE_URI = "http://localhost:8484/lms/employees";
 
@@ -17,11 +17,21 @@ function EmployeeService() {
     const getEmployeeById = (empid) => {
         return axios.get(EMPLOYEE_URI+`/getemployeebyid/${empid}`);
     }
+
+    const getEmployeeByManagerid = (managerid) => {
+        return axios.get(EMPLOYEE_URI+`/getbymanageid/${managerid}`);
+    }
    
     const loginValidate = async (login) => {
          return await axios.post(EMPLOYEE_URI+"/validate",login);
     }
-  return Object.freeze({getEmployees, addEmployee,getEmployeeById, loginValidate});
+  return Object.freeze({
+    getEmployees, 
+    addEmployee,
+    getEmployeeById, 
+    loginValidate , 
+    getEmployeeByManagerid
+});
   
 }
 

@@ -23,8 +23,18 @@ function GetHolidayList() {
     };
 
   return (
+        // <div className="card shadow mt-4">
+    //           <div className="card-header bg-warning text-dark">
+    //             Leave Requests
+    //           </div>
+    //           <div className="card-body">
+    //             <GetLeaveRequestByManagerid employee={employee} />
+    //           </div>
+    //         </div>
     <div className='container'>
-        <table className="table table-striped table-hover">
+    <div className=' card shadow mt-4'>
+        <div className="card-header bg-info text-white">Holiday List</div>
+        <table className="table table-striped table-hover card-body">
             <thead>
                 <tr align="left">
                 <th>DATE</th>
@@ -41,6 +51,7 @@ function GetHolidayList() {
                 )) }
             </tbody>
         </table>
+    </div>
     </div>
   )
 }

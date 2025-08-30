@@ -23,8 +23,11 @@ function AddHolidayDetail() {
         }
     }
   return (
+
     <div className='container mt-5'>
-        <h1 className='text-center mb-4'>Add new Holiday Detail</h1>
+        <div className="card shadow">
+              <div className="card-header bg-secondary text-white">Add Holiday</div>
+        <div className="card-body">
         <form className='mx-auto' style={{maxWidth: "500px"}}>
            <div className='mb-3'>
                 <label className='form-label'>Enter Holiday ID</label>
@@ -48,13 +51,11 @@ function AddHolidayDetail() {
                 </Link> */}
             </div>
         </form>
+        </div>
+    </div>
     </div>
   )
 }
 
 export default AddHolidayDetail
 
-
-//   "id": 0,
-//   "holidayDetails": "string",
-//   "date": "2025-08-29"
