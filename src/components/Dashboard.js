@@ -33,8 +33,8 @@ function Dashboard() {
           <div className="col-md-6 mb-4">
                 <GetHolidayList />
           </div>
-          <GetEmployeeByManagerid employee={employee} />
-          <GetLeaveRequestByManagerid employee={employee} />
+          <GetEmployeeByManagerid managerid={employee.managerid} />
+          <GetLeaveRequestByManagerid managerid={employee.managerid} />
         </div>
       ) : (
         <div className="row">
@@ -44,7 +44,7 @@ function Dashboard() {
           <div className="col-md-6 mb-4">
             <GetHolidayList />
           </div>
-          <GetLeaveHistoryByEmpid employee={employee} />
+          <GetLeaveHistoryByEmpid empid={employee.empid} />
         </div>
       )}
     </div>

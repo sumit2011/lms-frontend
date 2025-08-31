@@ -1,14 +1,16 @@
 import React, { use, useState } from 'react'
 import EmployeeService from '../service/EmployeeService';
 import { useEffect } from 'react';
+import EmployeeDetails from './EmployeeDetails';
 
-function GetEmployeeByManagerid(props) {
+function GetEmployeeByManagerid({managerid}) {
     const [employeeList, setEmployeeList] = useState([]);
     const service = EmployeeService();
+    const [employee, setEmployee] = useState();
 
     useEffect(() => {
-        getEmployees(props.managerid);
-    }, [props.managerid]);
+        getEmployees(managerid);
+    }, [managerid]);
 
 
     const getEmployees = (managerid) => {
@@ -17,6 +19,9 @@ function GetEmployeeByManagerid(props) {
         });
     }
 
+    const handleViewDetails = (emp) => {
+        setEmployee(emp);
+    };
     return (
         <div className='container'>
             <div className="card shadow mt-4">
@@ -35,22 +40,27 @@ function GetEmployeeByManagerid(props) {
                         </thead>
                         <tbody>
                             {
-                                employeeList.map(employee => (
-                                    <tr key={employee.empid} align="left">
-                                        <td>{employee.empid}</td>
-                                        <td>{employee.firstName}</td>
-                                        <td>{employee.lastName}</td>
-                                        <td>{employee.mobile}</td>
-                                        <td>{employee.email}</td>
-                                        <td>{employee.job}</td>
+                                employeeList.map(emp => (
+                                    <tr key={emp.empid} align="left">
+                                        <td>{emp.empid}</td>
+                                        <td>{emp.firstName}</td>
+                                        <td>{emp.lastName}</td>
+                                        <td>{emp.mobile}</td>
+                                        <td>{emp.email}</td>
+                                        <td>{emp.job}</td>
+                                        <td>
+                                            <button className='btn btn-succes' onClick={() => handleViewDetails(emp)} >View Details</button>
+                                        </td>
                                     </tr>
                                 ))
-
                             }
                         </tbody>
                     </table>
                 </div>
             </div>
+            {setEmployee && (
+                <EmployeeDetails employee={employee} />
+            )}
         </div>
     )
 }

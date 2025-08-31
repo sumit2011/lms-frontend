@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import LeaveRequestService from '../service/LeaveRequestService'
 import { useNavigate } from 'react-router-dom';
 
-function GetLeaveRequestByManagerid(props) {
+function GetLeaveRequestByManagerid({managerid}) {
   const leaveRequestService = LeaveRequestService();
   const [leaveReqList, setLeaveReqList] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    getLeaveReq(props.managerid);
-  }, [props.managerid]);
+    getLeaveReq(managerid);
+  }, [managerid]);
 
   const getLeaveReq = (managerid) => {
     leaveRequestService.getLeaveRequestByManagerid(managerid).then((response) => {
@@ -17,24 +17,20 @@ function GetLeaveRequestByManagerid(props) {
     })
   }
 
-  const approveLeaveReq = (event, id) => {
+const handleVerifyClick = async (event, l, isApproved) => {
     event.preventDefault();
-    leaveRequestService.approveLeave(id);
-    navigate(0);
-  }
+    const remarks = window.prompt("Enter remarks:", l.remarks || "");
 
-  const rejectLeaveReq = (event, id) => {
-    event.preventDefault();
-    leaveRequestService.rejectLeave(id);
-    navigate(0);
-  }
+      leaveRequestService.verifyLeave(l.id, isApproved, remarks);
+      setLeaveReqList(prevList =>
+        prevList.map(item =>
+          item.id === l.id ? { ...item, status: isApproved ? 'Approved' : 'Rejected', remarks } : item
+        )
+      );
+    
+  };
 
-  const verifyLeave = (event , id , approve,remarks) =>{
-    event.preventDefault();
-    leaveRequestService.verifyLeave(id,approve,remarks);
-    navigate(0);
-  }
-  
+
   return (
     <div className='container'>
       <div className="card shadow mt-4">
@@ -68,8 +64,8 @@ function GetLeaveRequestByManagerid(props) {
                 <td>{l.status}</td>
                 <td>{l.remarks}</td>
                 <React.Fragment>
-                  <td><button onClick={(event) => approveLeaveReq(event, l.id)} className='btn btn-success'>Approve</button></td>
-                  <td><button onClick={(event) => rejectLeaveReq(event, l.id)} className='btn btn-danger'>Reject</button></td>
+                  <td><button onClick={(event) => handleVerifyClick(event, l, true)} className='btn btn-success'>Approve</button></td>
+                  <td><button onClick={(event) => handleVerifyClick(event, l,false)} className='btn btn-danger'>Reject</button></td>
                 </React.Fragment>
               </tr>
 

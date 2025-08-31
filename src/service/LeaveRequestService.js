@@ -9,14 +9,14 @@ function LeaveRequestService() {
         return axios.post(LEAVEREQUEST_URI+`/apply`,leaverequest);
     }
     const cancelLeaveReq = (id)=>{
-        return axios.put(LEAVEREQUEST_URI+`/cancel/${id}`,id);
+        return axios.put(LEAVEREQUEST_URI+`/cancel/${id}`,null);
     }
     const withdrawLeave = (id)=>{
-        return axios.put(LEAVEREQUEST_URI+`/withdraw/${id}`,id);
+        return axios.put(LEAVEREQUEST_URI+`/withdraw/${id}`,null);
 
     }
-    const verifyLeave = (id,approve,remarks)=>{
-        return axios.put(LEAVEREQUEST_URI+`/verify/${id}`,id,approve,remarks);
+    const verifyLeave = (id,approvalStatus,remarks)=>{
+        return axios.put(LEAVEREQUEST_URI+`/verify/${id}`,{approvalStatus,remarks});
     }
     const approveLeave = ()=>{
 

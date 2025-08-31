@@ -19,18 +19,10 @@ function GetHolidayList() {
     const formatDate = (date) => {
         // Format date to a more readable format (e.g., August 28, 2025)
         const d = new Date(date);
-        return d.toLocaleDateString(); // You can adjust this format as needed
+        return d.toLocaleDateString(); 
     };
 
   return (
-        // <div className="card shadow mt-4">
-    //           <div className="card-header bg-warning text-dark">
-    //             Leave Requests
-    //           </div>
-    //           <div className="card-body">
-    //             <GetLeaveRequestByManagerid employee={employee} />
-    //           </div>
-    //         </div>
     <div className='container'>
     <div className=' card shadow mt-4'>
         <div className="card-header bg-info text-white">Holiday List</div>
