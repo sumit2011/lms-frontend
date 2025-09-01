@@ -48,7 +48,7 @@ function ApplyLeaveForm(props) {
         <div className='card shadow mt-4'>
             
             <div className='card-header bg-warning text-white'>Apply for leave</div>
-            <div className='card-body'>
+            <div className='card-body' align = 'left'>
             <form className='mx-auto' style={{ maxWidth: "500px" }}>
                 <div className='mb-2'>
                     <label className='form-label'>From</label>
