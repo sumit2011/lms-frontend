@@ -61,7 +61,7 @@ function Login() {
                                         placeholder="Password"
                                     />
                                 </div>
-                                <button type="submit" className="btn btn-success w-100">Login</button>
+                                <button type="submit" className="btn btn-success ">Login</button>
                             </form>
                         </div>
                     </div>

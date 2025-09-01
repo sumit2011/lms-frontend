@@ -25,8 +25,10 @@ function AddEmployee() {
 
   return (
     <div className="container mt-5">
-        <h1 className="text-center mb-4">Add new Employee</h1>
-        <form className="mx-auto" style={{maxWidth: "500px"}}>
+        <div className="card shadow">
+              <div className="card-header bg-secondary text-white">Add new Employee</div>
+        <div className="card-body">
+        <form className="mx-auto" style={{maxWidth: "500px"}} align="left">
             <div className="mb-3">
                 <label className="form-label">Enter Employee ID</label>
                 <input type="text" name="empid" value={employee.empid}
@@ -74,6 +76,8 @@ function AddEmployee() {
                 </Link> */}
             </div>
         </form>
+        </div>
+        </div>
     </div>
   )
 }

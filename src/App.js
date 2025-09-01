@@ -25,6 +25,8 @@ function App() {
           <Route path='/addholiday' element={<AddHolidayDetail/>}/>
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='/employeedetail' element={<EmployeeDetails />} />
+          <Route path='/getemployee' element={<GetEmployeeByManagerid />} />
+          {/* <Route path='/leaverequest' element={<GetLeaveRequestByManagerid />} /> */}
           
         </Routes>
       </BrowserRouter>

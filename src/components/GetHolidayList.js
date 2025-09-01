@@ -8,7 +8,7 @@ function GetHolidayList() {
 
     useEffect(()=>{
         getHolidayList();
-    });
+    },[]);
 
     const getHolidayList = () => {
         service.getHolidays().then((response)=>{
@@ -16,14 +16,10 @@ function GetHolidayList() {
         });
     }
 
-    const formatDate = (date) => {
-        // Format date to a more readable format (e.g., August 28, 2025)
-        const d = new Date(date);
-        return d.toLocaleDateString(); 
-    };
+    
 
   return (
-    <div className='container'>
+    <div className='container mt-5'>
     <div className=' card shadow mt-4'>
         <div className="card-header bg-info text-white">Holiday List</div>
         <table className="table table-striped table-hover card-body">
@@ -37,7 +33,7 @@ function GetHolidayList() {
                 {
                     holidays.map(h => (
                 <tr key={h.id} align="left">
-                    <td>{formatDate(h.holidayDate)}</td> 
+                    <td>{h.date}</td> 
                     <td>{h.holidayDetails}</td>            
                  </tr>
                 )) }

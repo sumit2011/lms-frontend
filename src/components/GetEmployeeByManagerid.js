@@ -7,7 +7,6 @@ function GetEmployeeByManagerid({managerid}) {
     const [employeeList, setEmployeeList] = useState([]);
     const service = EmployeeService();
     const [employee, setEmployee] = useState();
-
     useEffect(() => {
         getEmployees(managerid);
     }, [managerid]);
@@ -49,8 +48,10 @@ function GetEmployeeByManagerid({managerid}) {
                                         <td>{emp.email}</td>
                                         <td>{emp.job}</td>
                                         <td>
-                                            <button className='btn btn-succes' onClick={() => handleViewDetails(emp)} >View Details</button>
+                                            <button className='btn btn-success' onClick={() => handleViewDetails(emp)} >View Details</button>
                                         </td>
+                                    
+
                                     </tr>
                                 ))
                             }
@@ -58,11 +59,21 @@ function GetEmployeeByManagerid({managerid}) {
                     </table>
                 </div>
             </div>
-            {setEmployee && (
-                <EmployeeDetails employee={employee} />
+            {employee && (
+                <EmployeeDetails
+                    empid={employee.empid}
+                    firstName={employee.firstName}
+                    lastName={employee.lastName}
+                    mobile={employee.mobile}
+                    email={employee.email}
+                    job={employee.job}
+                    managerid={employee.managerid}
+                  />
             )}
         </div>
     )
 }
+
+// empid, firstName, lastName, mobile, email, job, managerid
 
 export default GetEmployeeByManagerid

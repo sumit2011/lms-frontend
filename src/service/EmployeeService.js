@@ -19,11 +19,11 @@ function EmployeeService() {
     }
 
     const getEmployeeByManagerid = (managerid) => {
-        return axios.get(EMPLOYEE_URI+`/getbymanageid/${managerid}`);
+        return axios.get(EMPLOYEE_URI+`/geremployeebymanagerid/${managerid}`);
     }
    
     const loginValidate = async (login) => {
-         return await axios.post(EMPLOYEE_URI+"/validate",login);
+         return await axios.post(EMPLOYEE_URI+"/loginvalidate",login);
     }
   return Object.freeze({
     getEmployees, 

@@ -15,11 +15,12 @@ function AddHolidayDetail() {
 
     const submitData = (event) => {
         event.preventDefault();
-        if(holiday.id===0 || holiday.id.length===0)
-            alert("Invalid holiday id");
+        if(holiday.holidayDetails===0 || holiday.holidayDetails.length===0 || holiday.date.length===0)
+            alert("Invalid holiday details");   
         else {
+            console.log(holiday);
          service.addHoliday(holiday);
-        //  navigate('/getallemployees')
+         alert("Holiday added successfully");
         }
     }
   return (
@@ -29,11 +30,6 @@ function AddHolidayDetail() {
               <div className="card-header bg-secondary text-white">Add Holiday</div>
         <div className="card-body">
         <form className='mx-auto' style={{maxWidth: "500px"}}>
-           <div className='mb-3'>
-                <label className='form-label'>Enter Holiday ID</label>
-                <input type="text" name="id" value={holiday.id || ""}
-                    onChange={changeData} className='form-control' required/>
-            </div>
             <div className='mb-3'>
                 <label className='form-label'>Enter Holiday Details</label>
                 <input type="text" name="holidayDetails" value={holiday.holidayDetails || ""}
@@ -41,7 +37,7 @@ function AddHolidayDetail() {
             </div>
             <div className='mb-3'>
                 <label className='form-label'>Enter Holiday Date</label>
-                <input type="date" name="holidayDate" value={holiday.holidayDate || ""}
+                <input type="date" name="date" value={holiday.date || ""}
                     onChange={changeData} className='form-control'/>
             </div>
             <div className='d-flex justify-content-between'>

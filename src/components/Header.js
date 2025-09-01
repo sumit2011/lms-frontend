@@ -25,9 +25,7 @@ function Header() {
                                 Logout
                             </button>
                         ) : 
-                        <button  className="btn btn-danger">
-                                Login
-                            </button>
+                        null
                         }
                     </div>
                 </div>

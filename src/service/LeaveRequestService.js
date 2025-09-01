@@ -15,8 +15,8 @@ function LeaveRequestService() {
         return axios.put(LEAVEREQUEST_URI+`/withdraw/${id}`,null);
 
     }
-    const verifyLeave = (id,approvalStatus,remarks)=>{
-        return axios.put(LEAVEREQUEST_URI+`/verify/${id}`,{approvalStatus,remarks});
+    const verifyLeave = (id,isApproved,remarks)=>{
+        return axios.put(LEAVEREQUEST_URI+`/verify/${id}?isApproved=${isApproved}&remarks=${remarks}`);
     }
     const approveLeave = ()=>{
 
